@@ -6,7 +6,7 @@
 // Create Date: 03/24/2024 10:50:07 PM
 // Design Name: CPU
 // Module Name: CPU
-// Project Name: DOLP-000001X
+// Project Name: WHL-000001X
 // Target Devices: Computer
 // Tool Versions: 2023.2.2
 // Description: This's my cpu design and apply in class
