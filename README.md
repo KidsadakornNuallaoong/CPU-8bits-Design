@@ -4,4 +4,4 @@
 > In this project we have put a lot of effort into understanding the workings of various subsystems. and is an important variable in this CPU design.
 
 # Banner of this design
-![CPU](https://github.com/KidsadakornNuallaoong/CPU-8bits-Design/assets/121489701/8f2769f1-5585-42d5-bd00-d7bd1252912c)
+![Banner](https://github.com/KidsadakornNuallaoong/CPU-8bits-Design/assets/121489701/cb9ddbaa-d747-4049-9068-e97a9d61b50f)
