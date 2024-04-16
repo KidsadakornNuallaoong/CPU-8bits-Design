@@ -19,7 +19,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module CPU(
     input clk,
     input Mclk,
@@ -666,5 +665,85 @@ module Control(
                 hold = 1;
           end
         end
+    end
+endmodule
+
+module TB_CPU;
+    reg clk;
+    reg Mclk;
+    reg rst;
+    wire [7:0] Code;
+    wire [7:0] Nnum;
+    wire [1:0] Mcount;
+    wire [7:0] Counter;
+    wire [7:0] SelDatA;
+    wire [7:0] SelDatB;
+    wire [7:0] WriteReg;
+    wire [7:0] RegRead;
+    wire [7:0] RegWrite;
+    wire [7:0] RWSel;
+    wire [7:0] SelDat;
+    wire [7:0] ALUop;
+    wire [7:0] AdrSel;
+    wire [7:0] hold;
+    wire [7:0] BchRead;
+    wire [7:0] MemWrite;
+    wire [7:0] MemRead;
+    wire [7:0] MemToReg;
+    wire [7:0] Data;
+    wire [7:0] JmpTo;
+    wire [7:0] Reg1;
+    wire [7:0] Reg2;
+    wire [7:0] Bch;
+    wire [7:0] Address;
+    wire [7:0] Result;
+    wire [7:0] BchJmp;
+    
+    CPU cpu(
+        .clk(clk),
+        .Mclk(Mclk),
+        .rst(rst),
+        .Code(Code),
+        .Nnum(Nnum),
+        .Mcount(Mcount),
+        .Counter(Counter),
+        .SelDatA(SelDatA),
+        .SelDatB(SelDatB),
+        .WriteReg(WriteReg),
+        .RegRead(RegRead),
+        .RegWrite(RegWrite),
+        .RWSel(RWSel),
+        .SelDat(SelDat),
+        .ALUop(ALUop),
+        .AdrSel(AdrSel),
+        .hold(hold),
+        .BchRead(BchRead),
+        .MemWrite(MemWrite),
+        .MemRead(MemRead),
+        .MemToReg(MemToReg),
+        .Data(Data),
+        .JmpTo(JmpTo),
+        .Reg1(Reg1),
+        .Reg2(Reg2),
+        .Bch(Bch),
+        .Address(Address),
+        .Result(Result),
+        .BchJmp(BchJmp)
+    );
+    
+    initial begin
+        clk = 1;
+        forever #10 clk = ~clk;
+    end
+    
+    initial begin
+        Mclk = 1;
+        forever #((10/5)) Mclk = ~Mclk; // Changed from ((10/5)) to ((10/2))
+    end
+    
+    initial begin
+        rst = 1;
+        #900;
+        $finish;
     end
 endmodule
